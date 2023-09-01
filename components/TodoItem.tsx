@@ -5,21 +5,21 @@ import { useState } from "react";
 type TodoItemProps = {
   id: string;
   title: string;
-  isCompleted: boolean;
+  isComplete: boolean;
   toggleTodo: (id: string, checked: boolean) => void;
   deleteTodo: (id: string) => void;
   editTodo: (id: string, newTitle: string) => void;
 };
 
-export default function TodoItem({ id, title, isCompleted, toggleTodo, deleteTodo, editTodo }: TodoItemProps) {
+export default function TodoItem({ id, title, isComplete, toggleTodo, deleteTodo, editTodo }: TodoItemProps) {
   const [isEditing, setIsEditing] = useState<boolean>(false);
-  const [newTitle, setNewTitle] = useState<string>(title);
+  const [newTitle, setNewTitle] = useState<TodoItemProps["title"]>(title);
 
   return (
     <div className="max-w-5xl mx-auto mt-4">
       <input
         type="checkbox"
-        defaultChecked={isCompleted}
+        defaultChecked={isComplete}
         onChange={(e) => toggleTodo(id, e.target.checked)}
         className="cursor-pointer peer"
       />

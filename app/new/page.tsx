@@ -8,7 +8,7 @@ async function addTodo(data: FormData) {
 
   if (typeof title !== "string" || title.length === 0) throw new Error("title cannot be empty");
 
-  await prisma.todo.create({ data: { title, isCompleted: false } });
+  await prisma.todo.create({ data: { title, isComplete: false } });
   redirect("/");
 }
 

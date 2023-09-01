@@ -8,7 +8,7 @@ export async function getTodos() {
 
 export async function toggleTodo(id: string, checked: boolean) {
   "use server";
-  await prisma.todo.update({ where: { id }, data: { isCompleted: checked } });
+  await prisma.todo.update({ where: { id }, data: { isComplete: checked } });
 }
 
 export async function deleteTodo(id: string) {
